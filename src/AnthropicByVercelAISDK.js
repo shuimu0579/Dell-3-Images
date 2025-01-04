@@ -1,7 +1,8 @@
-import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
-const { text } = await generateText({
-  model: anthropic("claude-3-opus-20240229"),
-  prompt: "What is love?",
-});
-console.log(text);
+import { ask } from "./lib/ask.js";
+
+const prompt = `What is love?`;
+const model = "claude-3-5-sonnet-latest";
+
+const anthropicResult = await ask(prompt, anthropic(model));
+console.log(anthropicResult);

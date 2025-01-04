@@ -1,7 +1,8 @@
-import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
-const { text } = await generateText({
-  model: openai("gpt-4o-mini-2024-07-18"),
-  prompt: "What is love?",
-});
-console.log(text);
+import { ask } from "./lib/ask.js";
+
+const prompt = `What is love?`;
+const model = "gpt-4o-mini-2024-07-18";
+
+const openaiResult = await ask(prompt, openai(model));
+console.log(openaiResult);
